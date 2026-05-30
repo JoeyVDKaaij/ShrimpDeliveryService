@@ -2507,9 +2507,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 617679655846089806, guid: f62afc783e6ccdc42a8c1ea364ec36fd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 844489501530978244, guid: f62afc783e6ccdc42a8c1ea364ec36fd, type: 3}
       propertyPath: m_Name
       value: Van
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383481904459638842, guid: f62afc783e6ccdc42a8c1ea364ec36fd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3873495120048576778, guid: f62afc783e6ccdc42a8c1ea364ec36fd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559177073175207620, guid: f62afc783e6ccdc42a8c1ea364ec36fd, type: 3}
+      propertyPath: wheelSize
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559177073175207620, guid: f62afc783e6ccdc42a8c1ea364ec36fd, type: 3}
+      propertyPath: inputAction
+      value: 
+      objectReference: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    - target: {fileID: 4559177073175207620, guid: f62afc783e6ccdc42a8c1ea364ec36fd, type: 3}
+      propertyPath: tireGripFactor
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559177073175207620, guid: f62afc783e6ccdc42a8c1ea364ec36fd, type: 3}
+      propertyPath: suspensionLength
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559177073175207620, guid: f62afc783e6ccdc42a8c1ea364ec36fd, type: 3}
+      propertyPath: suspensionRestDist
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7841531248608676322, guid: f62afc783e6ccdc42a8c1ea364ec36fd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9062879167587482644, guid: f62afc783e6ccdc42a8c1ea364ec36fd, type: 3}
       propertyPath: m_LocalPosition.x
