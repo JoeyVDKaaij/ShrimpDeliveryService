@@ -37,11 +37,13 @@ public class DrivingSystem : MonoBehaviour
     [SerializeField] float springDamper;
 
     [SerializeField] float tyresMaxGrip;
+    private PlayerInput _playerInput;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        _playerInput = GetComponent<PlayerInput>();
+        _playerInput.actions.devices = new[]{Gamepad.all[1]};
     }
 
     // Update is called once per frame
@@ -147,6 +149,8 @@ public class DrivingSystem : MonoBehaviour
 
                     //if (Mathf.Abs(desiredForce) > carData.tyresMaxGrip) { wheel.trail.emitting = true; wheel.smokeEffect.Play(); }
 
+
+                    // Debug.Log(totalBrakingForce + " vs " + -(enginePower * 200) * Time.fixedDeltaTime);
 
                     if (totalBrakingForce < -(enginePower * 1000 * backwardPowerMultiplier) * Time.fixedDeltaTime)
                     {

@@ -17,10 +17,13 @@ public class Movement : MonoBehaviour
 
     private Rigidbody _rb;
     private Vector3 _velocity;
+    private PlayerInput _playerInput;
     
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _playerInput = GetComponent<PlayerInput>();
+        _playerInput.actions.devices = new[]{Gamepad.all[0]};
     }
 
     private void Update()
