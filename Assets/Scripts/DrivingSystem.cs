@@ -20,6 +20,7 @@ public class DrivingSystem : MonoBehaviour
     [SerializeField] Wheel[] wheels;
 
     [SerializeField] float enginePower;
+    [SerializeField] float backwardPowerMultiplier;
     [SerializeField] float forwardFriction;
     [SerializeField] float sidewaysFriction;
 
@@ -146,9 +147,9 @@ public class DrivingSystem : MonoBehaviour
                     //if (Mathf.Abs(desiredForce) > carData.tyresMaxGrip) { wheel.trail.emitting = true; wheel.smokeEffect.Play(); }
 
 
-                    Debug.Log(totalBrakingForce + " vs " + -(enginePower * 200) * Time.fixedDeltaTime);
+                    Debug.Log(totalBrakingForce + " vs " + -(enginePower * 1000) * Time.fixedDeltaTime);
 
-                    if (totalBrakingForce < -(enginePower * 200) * Time.fixedDeltaTime)
+                    if (totalBrakingForce < -(enginePower * 1000 * backwardPowerMultiplier) * Time.fixedDeltaTime)
                     {
 
                         rb.AddForceAtPosition(brakingDir * totalBrakingForce * -inputDirectionVec2.y, t.position);
