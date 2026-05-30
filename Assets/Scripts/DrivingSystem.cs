@@ -13,6 +13,9 @@ public struct Wheel
 public class DrivingSystem : MonoBehaviour
 {
 
+    [SerializeField, Tooltip("Set the input to the movement mechanics.")]
+    private InputActionReference inputAction;
+
     [SerializeField] Rigidbody rb;
     [SerializeField] Wheel[] wheels;
 
@@ -44,6 +47,7 @@ public class DrivingSystem : MonoBehaviour
     void FixedUpdate()
     {
 
+        Vector2 inputDirectionVec2 = inputAction.action.ReadValue<Vector2>();
 
         int i = 0;
 
@@ -80,9 +84,11 @@ public class DrivingSystem : MonoBehaviour
             if (wheel.steering)
             {
                 float steeringInput = 0;
-                
-                if (Input.GetKey(KeyCode.D)) steeringInput++;
-                if (Input.GetKey(KeyCode.A)) steeringInput--;
+
+                steeringInput = inputDirectionVec2.x;
+
+                //if (Input.GetKey(KeyCode.D)) steeringInput++;
+                //if (Input.GetKey(KeyCode.A)) steeringInput--;
 
                 t.localRotation = Quaternion.Euler(0, steeringInput * steeringAngle, 0);
             }
@@ -111,16 +117,16 @@ public class DrivingSystem : MonoBehaviour
                 Vector3 accelDir = t.forward;
 
                 //if(accelInput > 0)
-                if (Input.GetKey(KeyCode.W))
+                if (inputDirectionVec2.y > 0)
                 {
                     //float carSpeed = Vector3.Dot(transform.forward, rb.velocity);
                     //float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(carSpeed) / carTopSpeed);
                     //float availableTorque = testTorque;
 
-                    rb.AddForceAtPosition((accelDir * (enginePower * 1000) * Time.fixedDeltaTime), t.position);
+                    rb.AddForceAtPosition((accelDir * (enginePower * 1000) * Time.fixedDeltaTime) * inputDirectionVec2.y, t.position);
 
                 }
-                if (Input.GetKey(KeyCode.S))
+                if (inputDirectionVec2.y < 0)
                 {
                     //float carSpeed = Vector3.Dot(transform.forward, rb.velocity);
                     //float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(carSpeed) / carTopSpeed);
@@ -145,16 +151,16 @@ public class DrivingSystem : MonoBehaviour
                     if (totalBrakingForce < -(enginePower * 200) * Time.fixedDeltaTime)
                     {
 
-                        rb.AddForceAtPosition(brakingDir * totalBrakingForce, t.position);
+                        rb.AddForceAtPosition(brakingDir * totalBrakingForce * -inputDirectionVec2.y, t.position);
                     }
                     else
                     {
-                        rb.AddForceAtPosition((brakingDir * -(enginePower * 200) * Time.fixedDeltaTime), t.position);
+                        rb.AddForceAtPosition((brakingDir * -(enginePower * 200) * Time.fixedDeltaTime) * -inputDirectionVec2.x, t.position);
                     }
 
                 }
                 //braking
-                if (Input.GetKey(KeyCode.Space))
+                /*if (Input.GetKey(KeyCode.Space))
                 {
                     Vector3 brakingDir = rb.transform.forward;
                     Vector3 tireWorldVel = rb.GetPointVelocity(t.position);
@@ -170,7 +176,7 @@ public class DrivingSystem : MonoBehaviour
                     //if (Mathf.Abs(desiredForce) > carData.tyresMaxGrip) { wheel.trail.emitting = true; wheel.smokeEffect.Play(); }
 
                     rb.AddForceAtPosition(brakingDir * totalBrakingForce, t.position);
-                }
+                }*/
             }
 
 
