@@ -4,13 +4,16 @@ using UnityEngine.InputSystem;
 public class GrabbingBox : MonoBehaviour
 {
 
-    [SerializeField] private InputActionReference inputAction;
+    [SerializeField] private InputActionReference GrabAction;
+    [SerializeField] private InputActionReference ThrowAction;
 
     [SerializeField] CameraRotation cameraScript;
 
     [SerializeField] float holdingDistance;
     [SerializeField] float forceToApply;
     [SerializeField] float dampingForce;
+
+    [SerializeField] float throwForce;
 
     Vector3 targetPosition;
 
@@ -19,10 +22,15 @@ public class GrabbingBox : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (inputAction == null) return;
+        if (GrabAction == null) return;
 
-        inputAction.action.performed += SelectBox;
-        inputAction.action.Enable();
+        GrabAction.action.performed += SelectBox;
+        GrabAction.action.Enable();
+
+        if (ThrowAction == null) return;
+
+        ThrowAction.action.performed += ThrowBox;
+        ThrowAction.action.Enable();
     }
 
     void SelectBox(InputAction.CallbackContext cxt)
@@ -49,6 +57,15 @@ public class GrabbingBox : MonoBehaviour
         }
         else
         {
+            selectedBox = null;
+        }
+    }
+
+    void ThrowBox(InputAction.CallbackContext cxt)
+    {
+        if (selectedBox != null)
+        {
+            selectedBox.GetComponent<Rigidbody>().AddForce(cameraScript.transform.forward * throwForce);
             selectedBox = null;
         }
     }

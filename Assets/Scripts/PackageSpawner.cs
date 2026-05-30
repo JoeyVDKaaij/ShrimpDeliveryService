@@ -34,7 +34,7 @@ public class PackageSpawner : MonoBehaviour
     [SerializeField] float delayBetweenPackages;
     float timeSinceLastPackage;
     
-
+    bool isSpawning;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -46,11 +46,15 @@ public class PackageSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeSinceLastPackage += Time.deltaTime;
+        if (isSpawning)
+        {
+            timeSinceLastPackage += Time.deltaTime;
 
-        if (timeSinceLastPackage > delayBetweenPackages && spawnedPackages.Count <= numPackagesToSpawn) { 
-            SpawnPackage();
-            timeSinceLastPackage = 0;
+            if (timeSinceLastPackage > delayBetweenPackages && spawnedPackages.Count <= numPackagesToSpawn)
+            {
+                SpawnPackage();
+                timeSinceLastPackage = 0;
+            }
         }
     }
 
@@ -58,5 +62,22 @@ public class PackageSpawner : MonoBehaviour
     {
         spawnedPackages.Add(new PhysicalPackage(Instantiate(emptyPackage), possiblePackages[UnityEngine.Random.Range(0, possiblePackages.Length)]));
         spawnedPackages[spawnedPackages.Count - 1].gameObject.transform.position = transform.position;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("LoadZone"))
+        {
+            isSpawning = true;
+        }
+    }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("LoadZone"))
+        {
+            isSpawning = false;
+        }
     }
 }
