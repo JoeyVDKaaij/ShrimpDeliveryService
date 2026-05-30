@@ -147,7 +147,7 @@ public class DrivingSystem : MonoBehaviour
                     //if (Mathf.Abs(desiredForce) > carData.tyresMaxGrip) { wheel.trail.emitting = true; wheel.smokeEffect.Play(); }
 
 
-                    Debug.Log(totalBrakingForce + " vs " + -(enginePower * 200) * Time.fixedDeltaTime);
+                    Debug.Log(totalBrakingForce + " vs " + -(enginePower * 1000) * Time.fixedDeltaTime);
 
                     if (totalBrakingForce < -(enginePower * 1000 * backwardPowerMultiplier) * Time.fixedDeltaTime)
                     {
