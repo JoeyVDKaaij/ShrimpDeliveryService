@@ -20,6 +20,7 @@ public class DrivingSystem : MonoBehaviour
     [SerializeField] Wheel[] wheels;
 
     [SerializeField] float enginePower;
+    [SerializeField] float backwardPowerMultiplier;
     [SerializeField] float forwardFriction;
     [SerializeField] float sidewaysFriction;
 
@@ -148,7 +149,7 @@ public class DrivingSystem : MonoBehaviour
 
                     Debug.Log(totalBrakingForce + " vs " + -(enginePower * 200) * Time.fixedDeltaTime);
 
-                    if (totalBrakingForce < -(enginePower * 200) * Time.fixedDeltaTime)
+                    if (totalBrakingForce < -(enginePower * 1000 * backwardPowerMultiplier) * Time.fixedDeltaTime)
                     {
 
                         rb.AddForceAtPosition(brakingDir * totalBrakingForce * -inputDirectionVec2.y, t.position);
