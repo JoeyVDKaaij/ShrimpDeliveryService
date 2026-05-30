@@ -20,10 +20,13 @@ public class DrivingSystem : MonoBehaviour
     [SerializeField] float forwardFriction;
     [SerializeField] float sidewaysFriction;
 
+    [SerializeField] AnimationCurve wheelFriction;
+
     [SerializeField] float suspensionLength;
     [SerializeField] float wheelSize;
 
     [SerializeField] float steeringAngle;
+    [SerializeField] float tireGripFactor;
 
     [SerializeField] float suspensionRestDist;
     [SerializeField] float springStrength;
@@ -85,23 +88,20 @@ public class DrivingSystem : MonoBehaviour
             }
 
 
-            if (!Input.GetKey(KeyCode.Space))
+            if (rayHit)
             {
-                if (rayHit)
-                {
-                    Vector3 steeringDir = t.right;
-                    Vector3 tireWorldVel = rb.GetPointVelocity(t.position);
+                Vector3 steeringDir = t.right;
+                Vector3 tireWorldVel = rb.GetPointVelocity(t.position);
 
-                    float steeringVel = Vector3.Dot(steeringDir, tireWorldVel);
-                    float desiredVelChange = -steeringVel * 1;
-                    float desiredForce = rb.mass * desiredVelChange;
+                float steeringVel = Vector3.Dot(steeringDir, tireWorldVel);
+                float desiredVelChange = -steeringVel * tireGripFactor;
+                float desiredForce = rb.mass * desiredVelChange;
 
-                    float totalSteeringForce;
-                    if (desiredForce >= 0) totalSteeringForce = Mathf.Min(desiredForce, tyresMaxGrip);
-                    else totalSteeringForce = Mathf.Max(desiredForce, -tyresMaxGrip);
+                float totalSteeringForce;
+                if (desiredForce >= 0) totalSteeringForce = Mathf.Min(desiredForce, tyresMaxGrip);
+                else totalSteeringForce = Mathf.Max(desiredForce, -tyresMaxGrip);
 
-                    rb.AddForceAtPosition(steeringDir * totalSteeringForce, t.position);
-                }
+                rb.AddForceAtPosition(steeringDir * totalSteeringForce, t.position);
             }
 
 
@@ -120,8 +120,41 @@ public class DrivingSystem : MonoBehaviour
                     rb.AddForceAtPosition((accelDir * (enginePower * 1000) * Time.fixedDeltaTime), t.position);
 
                 }
+                if (Input.GetKey(KeyCode.S))
+                {
+                    //float carSpeed = Vector3.Dot(transform.forward, rb.velocity);
+                    //float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(carSpeed) / carTopSpeed);
+                    //float availableTorque = testTorque;
+
+                    Vector3 brakingDir = rb.transform.forward;
+                    Vector3 tireWorldVel = rb.GetPointVelocity(t.position);
+
+                    float brakingVel = Vector3.Dot(brakingDir, tireWorldVel);
+                    float desiredVelChange = -brakingVel;
+                    float desiredForce = rb.mass * desiredVelChange;
+
+                    float totalBrakingForce;
+                    if (desiredForce >= 0) totalBrakingForce = Mathf.Min(desiredForce, tyresMaxGrip);
+                    else totalBrakingForce = Mathf.Max(desiredForce, -tyresMaxGrip);
+
+                    //if (Mathf.Abs(desiredForce) > carData.tyresMaxGrip) { wheel.trail.emitting = true; wheel.smokeEffect.Play(); }
+
+
+                    Debug.Log(totalBrakingForce + " vs " + -(enginePower * 200) * Time.fixedDeltaTime);
+
+                    if (totalBrakingForce < -(enginePower * 200) * Time.fixedDeltaTime)
+                    {
+
+                        rb.AddForceAtPosition(brakingDir * totalBrakingForce, t.position);
+                    }
+                    else
+                    {
+                        rb.AddForceAtPosition((brakingDir * -(enginePower * 200) * Time.fixedDeltaTime), t.position);
+                    }
+
+                }
                 //braking
-                if (Input.GetKey(KeyCode.S) || (Input.GetKey(KeyCode.Space)))
+                if (Input.GetKey(KeyCode.Space))
                 {
                     Vector3 brakingDir = rb.transform.forward;
                     Vector3 tireWorldVel = rb.GetPointVelocity(t.position);
