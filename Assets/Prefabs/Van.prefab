@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 31668808350991526}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6, y: -0.21099997, z: 0.40000004}
+  m_LocalPosition: {x: 0.6000001, y: -0.21099997, z: 1.2750001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -253,20 +253,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1df898d01809cc47ab582baa1f0bbc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  inputAction: {fileID: 0}
   rb: {fileID: 4067143053269751571}
   wheels:
   - transform: {fileID: 7841531248608676322}
-    powered: 1
-    steering: 1
+    powered: 0
+    steering: 0
   - transform: {fileID: 3873495120048576778}
+    powered: 0
+    steering: 0
+  - transform: {fileID: 617679655846089806}
     powered: 1
     steering: 1
-  - transform: {fileID: 617679655846089806}
-    powered: 0
-    steering: 0
   - transform: {fileID: 1383481904459638842}
-    powered: 0
-    steering: 0
+    powered: 1
+    steering: 1
   enginePower: 0.3
   forwardFriction: 1
   sidewaysFriction: 0.6
@@ -278,7 +279,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   suspensionLength: 2
   wheelSize: 1
-  steeringAngle: -40
+  steeringAngle: 40
   tireGripFactor: 0
   suspensionRestDist: 1
   springStrength: 80
@@ -905,7 +906,7 @@ Transform:
   m_GameObject: {fileID: 7532237662929276643}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.6, y: -0.21099997, z: 0.4}
+  m_LocalPosition: {x: -0.59999996, y: -0.21099997, z: 1.275}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
