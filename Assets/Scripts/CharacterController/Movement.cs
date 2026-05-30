@@ -6,9 +6,7 @@ using Vector3 = UnityEngine.Vector3;
 [RequireComponent(typeof(Rigidbody))]
 public class Movement : MonoBehaviour
 {
-    private Rigidbody _rb;
-    private Vector3 _velocity;
-    
+    [Header("Movement Settings")]
     [SerializeField, Min(0), Tooltip("Set the movement speed.")]
     private float speed;
     [SerializeField, Tooltip("Set the input to the movement mechanics.")]
@@ -17,6 +15,9 @@ public class Movement : MonoBehaviour
                              "will be used to set the direction of the movement.")]
     private CameraRotation cameraRotation;
 
+    private Rigidbody _rb;
+    private Vector3 _velocity;
+    
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();

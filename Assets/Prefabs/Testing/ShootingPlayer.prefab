@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd76a9c3b3770a643ad699bf2b789d57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  speed: 308.01
+  speed: 300
   inputAction: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   cameraRotation: {fileID: 4182486006908494329}
 --- !u!54 &6539411361717896110

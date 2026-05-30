@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class CameraRotation : MonoBehaviour
 {
+    [Header("Rotation Settings")]
     [SerializeField, Tooltip("Set the input action that allows you to rotate the camera.")]
     private InputActionReference inputAction;
 

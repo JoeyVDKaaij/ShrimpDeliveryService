@@ -3,9 +3,11 @@ using UnityEngine.InputSystem;
 
 public class ShootingBox : MonoBehaviour
 {
+    [Header("Shooting Settings")]
     [SerializeField, Tooltip("Set up the button action reference that allows for the player to shoot.")]
     private InputActionReference shootingButton;
 
+    [Header("Projectile Settings")]
     [SerializeField, Tooltip("Set up the projectile to shoot.")] 
     private Rigidbody projectile;
     [SerializeField, Min(0), Tooltip("Set up the force in which the projectile will be shot at.")]
