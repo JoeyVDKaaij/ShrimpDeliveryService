@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7678993284308658829}
   - component: {fileID: 8315179483676902968}
   - component: {fileID: 2936875179103936637}
+  - component: {fileID: 2937837587453463424}
   m_Layer: 0
   m_Name: Office_01
   m_TagString: Untagged
@@ -92,3 +93,24 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2937837587453463424
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7231968342673981667}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 20.411879, y: 3.575974, z: 20.41188}
+  m_Center: {x: 0, y: 1.787987, z: 0.0000014305115}
