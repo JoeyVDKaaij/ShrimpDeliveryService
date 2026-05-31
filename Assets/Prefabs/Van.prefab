@@ -704,13 +704,66 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   possiblePackages:
-  - boxMaterial: {fileID: 2100000, guid: 131d0e1c65d6d594c8dd98521435b31d, type: 2}
+  - boxMaterial: {fileID: 2100000, guid: 6b7a836e91906a44c922f17cd9affc00, type: 2}
     packageType: 0
-  - boxMaterial: {fileID: 2100000, guid: 699311536b15e2d48bdea207eff8eb25, type: 2}
+  - boxMaterial: {fileID: 2100000, guid: d614bc0e8fbd0304dbab1842d8e29c17, type: 2}
     packageType: 1
+  - boxMaterial: {fileID: 2100000, guid: 74631e3c3cdd53f438ec661879c5419b, type: 2}
+    packageType: 2
+  - boxMaterial: {fileID: 2100000, guid: 734c8bcf2a5d6ad4faa23be0cb3911e1, type: 2}
+    packageType: 3
+  - boxMaterial: {fileID: 2100000, guid: fcc27743d90d6814d86ae5d9b592df57, type: 2}
+    packageType: 4
+  - boxMaterial: {fileID: 2100000, guid: 9b5c59d07a205634991d27710aa55cb4, type: 2}
+    packageType: 5
+  - boxMaterial: {fileID: 2100000, guid: f1d47441aa4e92a41b9932f0e620fcb6, type: 2}
+    packageType: 6
+  - boxMaterial: {fileID: 2100000, guid: 8a9b1313b56c4c6459350c463ad97786, type: 2}
+    packageType: 7
+  - boxMaterial: {fileID: 2100000, guid: bdeb290a9b3b34f4babff033cbac2824, type: 2}
+    packageType: 8
+  - boxMaterial: {fileID: 2100000, guid: 8485191858152484eb1c37709dc4e2f1, type: 2}
+    packageType: 9
+  - boxMaterial: {fileID: 2100000, guid: 6621cdc4b9161504b835e10db7961852, type: 2}
+    packageType: 10
+  - boxMaterial: {fileID: 2100000, guid: 6930eacca9d4a8a4196330d84a578990, type: 2}
+    packageType: 11
+  - boxMaterial: {fileID: 2100000, guid: 302054fc6b6351645a7dbf8f1c1ee115, type: 2}
+    packageType: 12
+  - boxMaterial: {fileID: 2100000, guid: 120232bb807bd7d49a3a5da91365c0b8, type: 2}
+    packageType: 13
+  - boxMaterial: {fileID: 2100000, guid: 7affa353ea2efa146a786f96dba5b136, type: 2}
+    packageType: 14
+  - boxMaterial: {fileID: 2100000, guid: b9236906fed82d84fab78b35a9c68ffa, type: 2}
+    packageType: 15
+  - boxMaterial: {fileID: 2100000, guid: 011369176a75600429032bc677819e3d, type: 2}
+    packageType: 16
+  - boxMaterial: {fileID: 2100000, guid: b43096fab99ebd14192618ac0d9f5415, type: 2}
+    packageType: 17
+  - boxMaterial: {fileID: 2100000, guid: 540c41425d830924392c1acdababf795, type: 2}
+    packageType: 18
+  - boxMaterial: {fileID: 2100000, guid: 7e4fc5f48efe58842ae8dc4f8aa795c4, type: 2}
+    packageType: 19
+  - boxMaterial: {fileID: 2100000, guid: 7298cbdf9d8f9e740a188f89764fe6e3, type: 2}
+    packageType: 20
+  - boxMaterial: {fileID: 2100000, guid: f27dc87a3c5b87244b425c87a46a4714, type: 2}
+    packageType: 21
+  - boxMaterial: {fileID: 2100000, guid: 979935e6a5fd79248bae82a805e04d0d, type: 2}
+    packageType: 22
+  - boxMaterial: {fileID: 2100000, guid: 103be387b42c46442b4430f2e1797a4a, type: 2}
+    packageType: 23
+  - boxMaterial: {fileID: 2100000, guid: 0f35a3050ec52fc4a8247cac2d5326b7, type: 2}
+    packageType: 24
+  - boxMaterial: {fileID: 2100000, guid: d53976e1e006ff34c80a42c049941932, type: 2}
+    packageType: 25
+  - boxMaterial: {fileID: 2100000, guid: 42b01fb6d5269094891bc40801d88afa, type: 2}
+    packageType: 26
+  - boxMaterial: {fileID: 2100000, guid: 895da220e7f66f646919806b15e78af7, type: 2}
+    packageType: 27
   emptyPackage: {fileID: 1324179466874880463, guid: c33d0ebc059a6ee4eb15b2426a70f6c5, type: 3}
   numPackagesToSpawn: 10
   delayBetweenPackages: 0.3
+  targetManager: {fileID: 0}
 --- !u!1 &6350068895231740820
 GameObject:
   m_ObjectHideFlags: 0
