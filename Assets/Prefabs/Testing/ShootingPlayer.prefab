@@ -480,8 +480,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3839e465233134948b925e3155b98781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbingBox
-  GrabAction: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  ThrowAction: {fileID: 7040659881675835329, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  GrabAction: {fileID: 1120369429361536294, guid: a6bccc08bb5ed544f9bf006a3c855c93, type: 3}
+  ThrowAction: {fileID: 7040659881675835329, guid: a6bccc08bb5ed544f9bf006a3c855c93, type: 3}
   cameraScript: {fileID: 4182486006908494329}
   holdingDistance: 3
   forceToApply: 1
