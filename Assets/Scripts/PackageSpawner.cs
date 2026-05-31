@@ -19,7 +19,7 @@ public class PhysicalPackage
     {
         gameObject = spawnedObject;
         packageType = type.packageType;
-        gameObject.GetComponent<MeshRenderer>().material = type.boxMaterial;
+        gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = type.boxMaterial;
         gameObject.GetComponent<BoxIdentifier>().packageType = type.packageType;
     }
 }

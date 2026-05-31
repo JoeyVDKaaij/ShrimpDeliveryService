@@ -150,7 +150,7 @@ public class DrivingSystem : MonoBehaviour
                     //if (Mathf.Abs(desiredForce) > carData.tyresMaxGrip) { wheel.trail.emitting = true; wheel.smokeEffect.Play(); }
 
 
-                    // Debug.Log(totalBrakingForce + " vs " + -(enginePower * 200) * Time.fixedDeltaTime);
+                    Debug.Log(totalBrakingForce + " vs " + -(enginePower * 1000) * Time.fixedDeltaTime);
 
                     if (totalBrakingForce < -(enginePower * 1000 * backwardPowerMultiplier) * Time.fixedDeltaTime)
                     {
@@ -159,7 +159,7 @@ public class DrivingSystem : MonoBehaviour
                     }
                     else
                     {
-                        rb.AddForceAtPosition((brakingDir * -(enginePower * 200) * Time.fixedDeltaTime) * -inputDirectionVec2.x, t.position);
+                        rb.AddForceAtPosition((brakingDir * -(enginePower * 1000) * Time.fixedDeltaTime) * -inputDirectionVec2.y, t.position);
                     }
 
                 }

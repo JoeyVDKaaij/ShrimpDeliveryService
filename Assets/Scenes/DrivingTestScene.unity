@@ -2989,6 +2989,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Van
       objectReference: {fileID: 0}
+    - target: {fileID: 4559177073175207620, guid: f62afc783e6ccdc42a8c1ea364ec36fd, type: 3}
+      propertyPath: enginePower
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559177073175207620, guid: f62afc783e6ccdc42a8c1ea364ec36fd, type: 3}
+      propertyPath: backwardPowerMultiplier
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 8955814792329909965, guid: f62afc783e6ccdc42a8c1ea364ec36fd, type: 3}
       propertyPath: targetManager
       value: 
