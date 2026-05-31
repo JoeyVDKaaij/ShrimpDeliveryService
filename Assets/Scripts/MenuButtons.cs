@@ -23,10 +23,14 @@ public class MenuButtons : MonoBehaviour
         ctrlCam.SetActive(false);
         mainMenu.SetActive(true);
     }
-
     public void StartGame()
     {
         Debug.Log("StartGame()");
         SceneManager.LoadScene(1);
+    }
+    public void BackToMenu()
+    {
+        Debug.Log("BackToMenu()");
+        SceneManager.LoadScene(0);
     }
 }
