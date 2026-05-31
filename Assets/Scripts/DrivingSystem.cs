@@ -8,6 +8,7 @@ public struct Wheel
     public Transform transform;
     public bool powered;
     public bool steering;
+    public Transform visualizer;
 }
 
 public class DrivingSystem : MonoBehaviour
@@ -76,7 +77,7 @@ public class DrivingSystem : MonoBehaviour
 
                 rb.AddForceAtPosition(springDir * force, t.position);
 
-                //wheel.mesh.localPosition = new Vector3(0, -hit.distance + wheelSize, 0);
+                wheel.visualizer.localPosition = new Vector3(0, -hit.distance + wheelSize - 0.2f, 0);
             }
             else
             {
