@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+using Unity.VisualScripting;
 
 [System.Serializable]
 public struct Package
@@ -19,6 +20,7 @@ public class PhysicalPackage
         gameObject = spawnedObject;
         packageType = type.packageType;
         gameObject.GetComponent<MeshRenderer>().material = type.boxMaterial;
+        gameObject.GetComponent<BoxIdentifier>().packageType = type.packageType;
     }
 }
 
@@ -26,16 +28,17 @@ public class PackageSpawner : MonoBehaviour
 {
 
     [SerializeField] Package[] possiblePackages;
-    List<PhysicalPackage> spawnedPackages;
+    public List<PhysicalPackage> spawnedPackages;
 
     [SerializeField] GameObject emptyPackage;
 
     [SerializeField] int numPackagesToSpawn;
     [SerializeField] float delayBetweenPackages;
     float timeSinceLastPackage;
+
+    [SerializeField] TargetManager targetManager;
     
     bool isSpawning;
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -60,8 +63,10 @@ public class PackageSpawner : MonoBehaviour
 
     void SpawnPackage()
     {
-        spawnedPackages.Add(new PhysicalPackage(Instantiate(emptyPackage), possiblePackages[UnityEngine.Random.Range(0, possiblePackages.Length)]));
-        spawnedPackages[spawnedPackages.Count - 1].gameObject.transform.position = transform.position;
+        PhysicalPackage newPackage = new PhysicalPackage(Instantiate(emptyPackage), possiblePackages[UnityEngine.Random.Range(0, possiblePackages.Length)]);
+        spawnedPackages.Add(newPackage);
+        newPackage.gameObject.transform.position = transform.position;
+        targetManager.AddUnspawnedPackage(newPackage);
     }
 
     private void OnTriggerEnter(Collider other)

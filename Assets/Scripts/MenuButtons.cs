@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class MenuButtons : MonoBehaviour
@@ -14,6 +15,8 @@ public class MenuButtons : MonoBehaviour
         mainMenu.SetActive(false);
         ctrlCam.SetActive(true);
         ctrlMenu.SetActive(true);
+        
+        EventSystem.current.SetSelectedGameObject(ctrlMenu.transform.GetChild(0).gameObject);
     }
 
     public void CloseControls()
@@ -22,6 +25,8 @@ public class MenuButtons : MonoBehaviour
         ctrlMenu.SetActive(false);
         ctrlCam.SetActive(false);
         mainMenu.SetActive(true);
+        
+        EventSystem.current.SetSelectedGameObject(mainMenu.transform.GetChild(0).gameObject);
     }
     public void StartGame()
     {
