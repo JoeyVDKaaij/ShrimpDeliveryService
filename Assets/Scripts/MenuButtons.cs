@@ -10,6 +10,7 @@ public class MenuButtons : MonoBehaviour
 
     public void OpenControls()
     {
+        Debug.Log("OpenControls()");
         mainMenu.SetActive(false);
         ctrlCam.SetActive(true);
         ctrlMenu.SetActive(true);
@@ -17,6 +18,7 @@ public class MenuButtons : MonoBehaviour
 
     public void CloseControls()
     {
+        Debug.Log("CloseControls()");
         ctrlMenu.SetActive(false);
         ctrlCam.SetActive(false);
         mainMenu.SetActive(true);
@@ -24,6 +26,7 @@ public class MenuButtons : MonoBehaviour
 
     public void StartGame()
     {
+        Debug.Log("StartGame()");
         SceneManager.LoadScene(1);
     }
 }
