@@ -9,6 +9,8 @@ public class CameraRotation : MonoBehaviour
 
     [SerializeField, Min(0), Tooltip("Set the camera rotation speed.")] 
     private float rotationSpeed = 1;
+    [SerializeField, Tooltip("Set the camera rotation speed.")] 
+    private Transform linkedObjects = null;
     
     void Start()
     {
@@ -26,5 +28,9 @@ public class CameraRotation : MonoBehaviour
         currentRotation.y += inputDirectionVec2.x * Time.deltaTime * rotationSpeed;
         
         transform.rotation = Quaternion.Euler(currentRotation);
+
+        if (linkedObjects == null) return;
+        
+        linkedObjects.rotation = Quaternion.Euler(new Vector3(-90, transform.rotation.eulerAngles.y + 90, 0));
     }
 }
