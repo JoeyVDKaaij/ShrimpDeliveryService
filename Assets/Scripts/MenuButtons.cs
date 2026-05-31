@@ -28,10 +28,14 @@ public class MenuButtons : MonoBehaviour
         
         EventSystem.current.SetSelectedGameObject(mainMenu.transform.GetChild(0).gameObject);
     }
-
     public void StartGame()
     {
         Debug.Log("StartGame()");
         SceneManager.LoadScene(1);
+    }
+    public void BackToMenu()
+    {
+        Debug.Log("BackToMenu()");
+        SceneManager.LoadScene(0);
     }
 }
