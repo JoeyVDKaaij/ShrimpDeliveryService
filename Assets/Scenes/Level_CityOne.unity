@@ -32665,6 +32665,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 840571532294218657, guid: 3b6cf4e88cd0e1d4c955002009a7d4ba, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1476054156206515612, guid: 3b6cf4e88cd0e1d4c955002009a7d4ba, type: 3}
       propertyPath: throwForce
       value: 20
@@ -115729,7 +115733,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: e938f27d6394c2d439a7be300b33f6cc, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.558
+  m_Volume: 0.19
   m_Pitch: 1
   Loop: 1
   Mute: 0
